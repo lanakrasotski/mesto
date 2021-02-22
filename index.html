@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="body">
+  <div class="page">
+    <header class="header">
+      <img class="logo" src="./images/logo.svg" alt="логотип место">
+    </header>
+
+    <main class="content mobile-size">
+      <section class="profile">
+        <div class="profile__container">
+          <img class="profile__avatar" src="./images/Avatar.jpg" alt="аватар пользователя">
+          <div class="profile__info">
+            <div class="profile-info-wrapper">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <button class="button profile__btn-edit"></button>
+            </div>
+            <p class="profile__subline">Исследователь океана</p>
+          </div>
+        </div>
+        <button class="button profile__btn-add"></button>
+      </section>
+
+      <section class="cards">
+        <figure class="card">
+          <img class="card__image" src="./images/Karachaevsk.jpg" alt="Карачаевск">
+          <div class="card-wrapper">
+            <h2 class="card__title">Карачаевск</h2>
+            <button class="button card__btn-like"></button>
+          </div>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/Elbrus.jpg" alt="Гора Эльбрус">
+          <div class="card-wrapper">
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="button card__btn-like"></button>
+          </div>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/Dombai.jpg" alt="Домбай">
+          <div class="card-wrapper">
+            <h2 class="card__title">Домбай</h2>
+            <button class="button card__btn-like"></button>
+          </div>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/Elbrus.jpg" alt="Гора Эльбрус">
+          <div class="card-wrapper">
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="button card__btn-like"></button>
+          </div>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/Dombai.jpg" alt="Домбай">
+          <div class="card-wrapper">
+            <h2 class="card__title">Домбай</h2>
+            <button class="button card__btn-like"></button>
+          </div>
+        </figure>
+        <figure class="card">
+          <img class="card__image" src="./images/Karachaevsk.jpg" alt="Карачаевo-Черкессия">
+          <div class="card-wrapper">
+            <h2 class="card__title">Карачаево-Черкессия</h2>
+            <button class="button card__btn-like"></button>
+          </div>
+        </figure>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer mobile-size">
+    <p class="footer__copyright">&#169; 2021 Mesto Russia</p>
+  </footer>
+
+  <div class="popup">
+    <div class="popup__content">
+      <button class="button popup__btn-close"></button>
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class="form">
+        <input name="profileName" class="form__input" value="" placeholder="Имя" required>
+        <input name="profileSubline" class="form__input" value="" placeholder="О себе" required>
+        <button type="submit" class="button form__submit-btn">Сохранить</button>
+      </form>
+    </div>
+  </div>
+<script src="./scripts/script.js"></script>
+</body>
+</html>
