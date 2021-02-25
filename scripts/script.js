@@ -8,9 +8,9 @@ let editSubline = document.querySelector('input[name=profileSubline]');
 let formElement = document.querySelector('.form');
 
 function showPopup() {
-    popup.classList.add('popup_opened');
     editName.value = profileName.textContent;
     editSubline.value = profileSubline.textContent;
+    popup.classList.add('popup_opened');
   }
 
   function closePopup() {
