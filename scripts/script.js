@@ -7,20 +7,23 @@ let editName = document.querySelector('input[name=profileName]');
 let editSubline = document.querySelector('input[name=profileSubline]');
 let formElement = document.querySelector('.form');
 
-function togglePopup() {
-    popup.classList.toggle('popup_opened');
+function showPopup() {
+    popup.classList.add('popup_opened');
     editName.value = profileName.textContent;
     editSubline.value = profileSubline.textContent;
   }
-showPopupButton.addEventListener('click', togglePopup);
-closePopupButton.addEventListener('click', togglePopup);
+
+  function closePopup() {
+    popup.classList.remove('popup_opened');
+  }
 
 function formSubmitHandler (evt) {
     evt.preventDefault();
-    editName.getAttribute('value');
-    editSubline.getAttribute('value');
     profileName.textContent = editName.value;
     profileSubline.textContent = editSubline.value;
+    closePopup();
 }
+
+showPopupButton.addEventListener('click', showPopup);
+closePopupButton.addEventListener('click', closePopup);
 formElement.addEventListener('submit', formSubmitHandler);
-formElement.addEventListener('submit', togglePopup);
