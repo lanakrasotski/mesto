@@ -28,67 +28,59 @@
       </section>
 
       <section class="cards">
-        <figure class="card">
-          <img class="card__image" src="./images/Karachaevsk.jpg" alt="Карачаевск">
-          <div class="card__wrapper">
-            <h2 class="card__title">Карачаевск</h2>
-            <button type="button" class="button card__btn-like"></button>
-          </div>
-        </figure>
-        <figure class="card">
-          <img class="card__image" src="./images/Elbrus.jpg" alt="Гора Эльбрус">
-          <div class="card__wrapper">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button type="button" class="button card__btn-like"></button>
-          </div>
-        </figure>
-        <figure class="card">
-          <img class="card__image" src="./images/Dombai.jpg" alt="Домбай">
-          <div class="card__wrapper">
-            <h2 class="card__title">Домбай</h2>
-            <button type="button" class="button card__btn-like"></button>
-          </div>
-        </figure>
-        <figure class="card">
-          <img class="card__image" src="./images/Elbrus.jpg" alt="Гора Эльбрус">
-          <div class="card__wrapper">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button type="button" class="button card__btn-like"></button>
-          </div>
-        </figure>
-        <figure class="card">
-          <img class="card__image" src="./images/Dombai.jpg" alt="Домбай">
-          <div class="card__wrapper">
-            <h2 class="card__title">Домбай</h2>
-            <button type="button" class="button card__btn-like"></button>
-          </div>
-        </figure>
-        <figure class="card">
-          <img class="card__image" src="./images/Karachaevsk.jpg" alt="Карачаевo-Черкессия">
-          <div class="card__wrapper">
-            <h2 class="card__title">Карачаево-Черкессия</h2>
-            <button type="button" class="button card__btn-like"></button>
-          </div>
-        </figure>
+       
       </section>
     </main>
-  </div>
+  
 
-  <footer class="footer mobile-size">
-    <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
-  </footer>
+    <footer class="footer mobile-size">
+      <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
+    </footer>
+  </div>  
 
-  <div class="popup">
+  <div class="popup popup_edit">
     <div class="popup__content">
-      <button type="button" class="button popup__btn-close"></button>
+      <button type="button" class="button popup__btn-close popup__btn-close_edit"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="form" name="editForm">
-        <input name="profileName" class="form__input" value="" placeholder="Имя" required>
-        <input name="profileSubline" class="form__input" value="" placeholder="О себе" required>
+      <form class="form form_edit" name="editForm">
+        <input name="editName" class="form__input form__input_editName" value="" placeholder="Имя" required>
+        <input name="editSubline" class="form__input form__input_editSubline" value="" placeholder="О себе" required>
         <button type="submit" class="button form__submit-btn">Сохранить</button>
       </form>
     </div>
   </div>
+
+  <div class="popup popup_add">
+    <div class="popup__content">
+      <button type="button" class="button popup__btn-close popup__btn-close_add"></button>
+      <h3 class="popup__title">Новое место</h3>
+      <form class="form form_add" name="addForm">
+        <input name="addName" class="form__input form__input_addName" value="" placeholder="Название" required>
+        <input name="addLink" class="form__input form__input_addLink" value="" placeholder="Ссылка на картинку" required>
+        <button type="submit" class="button form__submit-btn">Создать</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_img">
+    <div class="popup__content-img">
+      <button type="button" class="button popup__btn-close popup__btn-close_img"></button>
+      <img class="popup__image" src='#' alt='#'>
+      <p class="popup__image-title"></p>
+    </div>  
+  </div>
+
+  <template class="template">
+    <figure class="card">
+      <img class="card__image" src="#" alt="#">
+      <button type="button" class="button card__btn-delete"></button>
+      <div class="card__wrapper">
+        <h2 class="card__title"></h2>
+        <button type="button" class="button card__btn-like"></button>
+      </div>
+    </figure>
+  </template>
+
 <script src="./scripts/script.js"></script>
 </body>
 </html>

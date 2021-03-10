@@ -9,9 +9,5 @@
 }
 
 .card__btn-like:hover {
-  background-image: url(../../../images/like-hover.svg);
-}
-
-.card__btn-like:active {
-  background-image: url(../../../images/like-active.svg);
+  opacity: 0.5;
 }
