@@ -106,7 +106,6 @@ function likeCard(evt) {
 }
 
 function openFullsizeImage (evt) {
-  showPopup(imagePopup);
   const image = evt.target;
   const card = image.closest('.card');
   const cardTitle = card.querySelector('.card__title');
@@ -117,6 +116,8 @@ function openFullsizeImage (evt) {
   fullsizeImg.src = cardImage.src;
   fullsizeImgTitle.textContent = cardTitle.textContent;
   fullsizeImg.alt = cardTitle.textContent;
+  
+  showPopup(imagePopup);
 } 
 
 
