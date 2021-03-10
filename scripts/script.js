@@ -15,6 +15,8 @@ const addName = document.querySelector('.form__input_addName');
 const addLink = document.querySelector('.form__input_addLink');
 const imagePopup = document.querySelector('.popup_img');
 const imageClosePopupButton = document.querySelector('.popup__btn-close_img');
+const fullsizeImg = document.querySelector('.popup__image');
+const fullsizeImgTitle = document.querySelector('.popup__image-title');
 
 const initialCards = [
   {
@@ -85,7 +87,7 @@ const mainCards = initialCards.map(creatCard);
 cardContainer.append(...mainCards);
 }
 
-function addCards(evt) {
+function addCardFormSubmitHandler(evt) {
   evt.preventDefault();
 
   const newCard = creatCard({
@@ -110,13 +112,11 @@ function openFullsizeImage (evt) {
   const card = image.closest('.card');
   const cardTitle = card.querySelector('.card__title');
   const cardImage = card.querySelector('.card__image');
-  const fullsizeImg = document.querySelector('.popup__image');
-  const fullsizeImgTitle = document.querySelector('.popup__image-title');
   
   fullsizeImg.src = cardImage.src;
   fullsizeImgTitle.textContent = cardTitle.textContent;
   fullsizeImg.alt = cardTitle.textContent;
-  
+
   showPopup(imagePopup);
 } 
 
@@ -147,4 +147,4 @@ imageClosePopupButton.addEventListener('click', function () {
   closePopup(imagePopup);
 })
 editForm.addEventListener('submit', editFormSubmitHandler);
-addForm.addEventListener('submit', addCards);
+addForm.addEventListener('submit', addCardFormSubmitHandler);
