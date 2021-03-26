@@ -42,9 +42,11 @@
     <div class="popup__content">
       <button type="button" class="button popup__btn-close popup__btn-close_edit"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="form form_edit" name="editForm">
-        <input name="editName" class="form__input form__input_editName" value="" placeholder="Имя" required>
-        <input name="editSubline" class="form__input form__input_editSubline" value="" placeholder="О себе" required>
+      <form class="form form_edit" name="editForm" novalidate>
+        <input id="editName" name="editName" class="form__input form__input_editName" value="" placeholder="Имя" minlength="2" maxlength="40" required>
+        <span class="form__input-error editName-error" id="editName-error"></span>
+        <input id="editSubline" name="editSubline" class="form__input form__input_editSubline" value="" placeholder="О себе" minlength="2" maxlength="200" required>
+        <span class="form__input-error editSubline-error" id="editSubline-error"></span>
         <button type="submit" class="button form__submit-btn">Сохранить</button>
       </form>
     </div>
@@ -54,10 +56,12 @@
     <div class="popup__content">
       <button type="button" class="button popup__btn-close popup__btn-close_add"></button>
       <h3 class="popup__title">Новое место</h3>
-      <form class="form form_add" name="addForm">
-        <input name="addName" class="form__input form__input_addName" value="" placeholder="Название" required>
-        <input name="addLink" class="form__input form__input_addLink" value="" placeholder="Ссылка на картинку" required>
-        <button type="submit" class="button form__submit-btn">Создать</button>
+      <form class="form form_add" name="addForm" novalidate>
+        <input id="addName" name="addName" class="form__input form__input_addName" value="" placeholder="Название" minlength="2" maxlength="30" required>
+        <span class="form__input-error addName-error" id="addName-error">123</span>
+        <input id="addLink" name="addLink" class="form__input form__input_addLink" value="" placeholder="Ссылка на картинку" type="url" required>
+        <span class="form__input-error addLink-error" id="addLink-error"></span>
+        <button type="submit" class="button form__submit-btn form__submit-btn-add">Создать</button>
       </form>
     </div>
   </div>
@@ -81,6 +85,8 @@
     </figure>
   </template>
 
+<script src="./scripts/validate.js"></script>
+<script src="./scripts/initialCards.js"></script>
 <script src="./scripts/script.js"></script>
 </body>
 </html>

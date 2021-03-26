@@ -17,41 +17,29 @@ const imagePopup = document.querySelector('.popup_img');
 const imageClosePopupButton = document.querySelector('.popup__btn-close_img');
 const fullsizeImg = document.querySelector('.popup__image');
 const fullsizeImgTitle = document.querySelector('.popup__image-title');
-
-const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
+const submitButton = document.querySelector('.form__submit-btn-add');
 
 function showPopup(popupElement) {
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscapeHandler);
 }
 
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscapeHandler);
+}
+
+function closeByClickHandler(evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  }
+}
+
+function closeByEscapeHandler(evt) {
+  const popupOpened = document.querySelector('.popup_opened');
+  if (evt.key === 'Escape') {
+    closePopup(popupOpened);
+  }
 }
 
 function editFormSubmitHandler(evt) {
@@ -89,6 +77,9 @@ cardContainer.append(...mainCards);
 
 function addCardFormSubmitHandler(evt) {
   evt.preventDefault();
+  
+  submitButton.classList.add('form__submit-btn_disabled');
+  submitButton.setAttribute('disabled', true);
 
   const newCard = creatCard({
     name: addName.value,
@@ -97,6 +88,9 @@ function addCardFormSubmitHandler(evt) {
 
   cardContainer.prepend(newCard);
   closePopup(addPopup);
+
+  addName.value = '';
+  addLink.value = '';
 } 
 
 function deleteCard(evt) {
@@ -130,10 +124,12 @@ editPopupButton.addEventListener('click', function () {
 })
 
 addPopupButton.addEventListener('click', function () {
-  addName.value = '';
-  addLink.value = '';
   showPopup(addPopup);
 })
+
+editPopup.addEventListener('click', closeByClickHandler);
+addPopup.addEventListener('click', closeByClickHandler);
+imagePopup.addEventListener('click', closeByClickHandler);
 
 editClosePopupButton.addEventListener('click', function () {
   closePopup(editPopup);
