@@ -3,19 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Место</title>
 </head>
 <body class="body">
   <div class="page">
     <header class="header">
-      <img class="logo" src="./images/logo.svg" alt="логотип место">
+      <img class="logo" src="<%=require('../images/logo.svg')%>" alt="логотип место">
     </header>
 
     <main class="content mobile-size">
       <section class="profile">
         <div class="profile__container">
-          <img class="profile__avatar" src="./images/Avatar.jpg" alt="аватар пользователя">
+          <img class="profile__avatar" src="<%=require('../images/Avatar.jpg')%>"" alt="аватар пользователя">
           <div class="profile__info">
             <div class="profile__info-wrapper">
               <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -43,9 +42,9 @@
       <button type="button" class="button popup__btn-close popup__btn-close_edit"></button>
       <h3 class="popup__title">Редактировать профиль</h3>
       <form class="form form_edit" name="editForm" novalidate>
-        <input id="editName" name="editName" class="form__input form__input_editName" value="" placeholder="Имя" minlength="2" maxlength="40" required>
+        <input id="editName" name="name" class="form__input form__input_editName" value="" placeholder="Имя" minlength="2" maxlength="40" required>
         <span class="form__input-error editName-error" id="editName-error"></span>
-        <input id="editSubline" name="editSubline" class="form__input form__input_editSubline" value="" placeholder="О себе" minlength="2" maxlength="200" required>
+        <input id="editSubline" name="subline" class="form__input form__input_editSubline" value="" placeholder="О себе" minlength="2" maxlength="200" required>
         <span class="form__input-error editSubline-error" id="editSubline-error"></span>
         <button type="submit" class="button form__submit-btn">Сохранить</button>
       </form>
@@ -57,9 +56,9 @@
       <button type="button" class="button popup__btn-close popup__btn-close_add"></button>
       <h3 class="popup__title">Новое место</h3>
       <form class="form form_add" name="addForm" novalidate>
-        <input id="addName" name="addName" class="form__input form__input_addName" value="" placeholder="Название" minlength="2" maxlength="30" required>
+        <input id="addName" name="name" class="form__input form__input_addName" value="" placeholder="Название" minlength="2" maxlength="30" required>
         <span class="form__input-error addName-error" id="addName-error"></span>
-        <input id="addLink" name="addLink" class="form__input form__input_addLink" value="" placeholder="Ссылка на картинку" type="url" required>
+        <input id="addLink" name="link" class="form__input form__input_addLink" value="" placeholder="Ссылка на картинку" type="url" required>
         <span class="form__input-error addLink-error" id="addLink-error"></span>
         <button type="submit" class="button form__submit-btn form__submit-btn-add">Создать</button>
       </form>
@@ -85,6 +84,5 @@
     </figure>
   </template>
 
-<script type="module" src="./scripts/script.js"></script>
 </body>
 </html>

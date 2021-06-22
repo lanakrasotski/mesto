@@ -1,9 +1,9 @@
-export class Card {
-  constructor(name, link, cardSelector, showPopup) {
+export default class Card {
+  constructor({name, link}, cardSelector, handleCardClick) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-    this._showPopup = showPopup;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -18,12 +18,14 @@ export class Card {
 
   generateCard() {
     this._card = this._getTemplate();
-    this._setEventListeners();
-
-    this._card.querySelector('.card__image').src = this._link;
-    this._card.querySelector('.card__title').textContent = this._name;
-    this._card.querySelector('.card__image').alt = this._name;
     
+    this._cardImage = this._card.querySelector('.card__image');
+    this._cardTitle = this._card.querySelector('.card__title');
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+    this._cardTitle.textContent = this._name;
+
+    this._setEventListeners();
     return this._card;
   }
 
@@ -42,7 +44,6 @@ export class Card {
     const likeButton = this._card.querySelector('.card__btn-like');
     likeButton.addEventListener('click', () => {this._likeCard()});
 
-    const cardImage = this._card.querySelector('.card__image'); 
-    cardImage.addEventListener('click', () => {this._showPopup(this._link, this._name)});
-    } 
-  }    
+    this._cardImage.addEventListener('click', () => {this._handleCardClick.open(this._cardImage, this._cardTitle)});
+  } 
+}

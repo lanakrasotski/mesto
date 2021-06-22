@@ -1,4 +1,4 @@
-export const initialCards = [
+const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,10 +25,29 @@ export const initialCards = [
   }
 ];
 
-export const selectorsSet = {
+const selectorsSet = {
   inputSelector: '.form__input',
   submitButtonSelector: '.form__submit-btn',
   inactiveButtonClass: 'form__submit-btn_disabled',
   inputErrorClass: 'form__input_type_error',
   errorClass: 'form__input-error_visible'
 };
+
+const editPopupSelector = '.popup_edit';
+const addPopupSelector = '.popup_add';
+const imagePopupSelector = '.popup_img';
+
+const cardContainer = '.cards';
+const cardSelector = '.template';
+
+const editPopupButton = document.querySelector('.profile__btn-edit');
+const addPopupButton = document.querySelector('.profile__btn-add');
+
+const editName = document.querySelector('.form__input_editName');
+const editSubline = document.querySelector('.form__input_editSubline');
+
+const formList = document.querySelectorAll('.form');
+
+
+export {initialCards, selectorsSet, editPopupSelector, addPopupSelector, 
+  imagePopupSelector, cardContainer, cardSelector, editPopupButton, addPopupButton, editName, editSubline, formList}
