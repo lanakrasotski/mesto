@@ -46,8 +46,9 @@ const addPopupButton = document.querySelector('.profile__btn-add');
 const editName = document.querySelector('.form__input_editName');
 const editSubline = document.querySelector('.form__input_editSubline');
 
-const formList = document.querySelectorAll('.form');
-
+const addForm = document.querySelector('.form_add');
+const editForm = document.querySelector('.form_edit');
 
 export {initialCards, selectorsSet, editPopupSelector, addPopupSelector, 
-  imagePopupSelector, cardContainer, cardSelector, editPopupButton, addPopupButton, editName, editSubline, formList}
+  imagePopupSelector, cardContainer, cardSelector, editPopupButton, addPopupButton, 
+  editName, editSubline, addForm, editForm}

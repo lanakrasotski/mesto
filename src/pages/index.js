@@ -1,13 +1,21 @@
 import './index.css';
 import {initialCards, selectorsSet, editPopupSelector, addPopupSelector, 
   imagePopupSelector, cardContainer, cardSelector, editPopupButton, 
-  addPopupButton, editName, editSubline, formList} from '../utils/constants.js';
+  addPopupButton, editName, editSubline, addForm, editForm} from '../utils/constants.js';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+
+
+// включение валидации
+const addFormValidator = new FormValidator(selectorsSet, addForm);
+addFormValidator.enableValidation();
+
+const editFormValidator = new FormValidator(selectorsSet, editForm);
+editFormValidator.enableValidation();
 
 
 //редактирование профиля
@@ -21,6 +29,7 @@ function editFormSubmitHandler(user) {
 
 editProfilePopup.setEventListeners();
 editPopupButton.addEventListener('click', () => {
+  editFormValidator.resetValidation();
   editProfilePopup.open();
   const user = userInfo.getUserInfo();
   editName.value = user.name;
@@ -55,11 +64,6 @@ function addFormSubmitHandler(data) {
 fullsizeImgPopup.setEventListeners();
 addImagePopup.setEventListeners();
 addPopupButton.addEventListener('click', () => {
+  addFormValidator.resetValidation();
   addImagePopup.open();
-})
-
-
-// включение валидации
-formList.forEach((formElement) => {
-  new FormValidator(selectorsSet, formElement).enableValidation();
 })
