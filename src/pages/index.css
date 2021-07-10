@@ -42,3 +42,7 @@
 @import url(../blocks/form/__input/_type/form__input_type_error.css);
 @import url(../blocks/form/__input-error/form__input-error.css);
 @import url(../blocks/form/__input-error/_visible/form__input-error_visible.css);
+@import url(../blocks/card/__like-counter/card__like-counter.css);
+@import url(../blocks/card/__like-wrapper/card__like-wrapper.css);
+@import url(../blocks/profile/__avatar-overlay/profile__avatar-overlay.css);
+@import url(../blocks/popup/__btn-submit/popup__btn-submit.css);

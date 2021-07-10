@@ -14,13 +14,15 @@
     <main class="content mobile-size">
       <section class="profile">
         <div class="profile__container">
-          <img class="profile__avatar" src="<%=require('../images/Avatar.jpg')%>"" alt="аватар пользователя">
+          <div class="profile__avatar-overlay">
+            <img class="profile__avatar" name="avatar" src="#" alt="аватар пользователя">
+          </div>  
           <div class="profile__info">
             <div class="profile__info-wrapper">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <h1 class="profile__name"></h1>
               <button type="button" class="button profile__btn-edit"></button>
             </div>
-            <p class="profile__subline">Исследователь океана</p>
+            <p class="profile__subline"></p>
           </div>
         </div>
         <button type="button" class="button profile__btn-add"></button>
@@ -44,7 +46,7 @@
       <form class="form form_edit" name="editForm" novalidate>
         <input id="editName" name="name" class="form__input form__input_editName" value="" placeholder="Имя" minlength="2" maxlength="40" required>
         <span class="form__input-error editName-error" id="editName-error"></span>
-        <input id="editSubline" name="subline" class="form__input form__input_editSubline" value="" placeholder="О себе" minlength="2" maxlength="200" required>
+        <input id="editSubline" name="about" class="form__input form__input_editSubline" value="" placeholder="О себе" minlength="2" maxlength="200" required>
         <span class="form__input-error editSubline-error" id="editSubline-error"></span>
         <button type="submit" class="button form__submit-btn">Сохранить</button>
       </form>
@@ -73,13 +75,36 @@
     </div>  
   </div>
 
+  <div class="popup popup_avatar-edit">
+    <div class="popup__content">
+      <button type="button" class="button popup__btn-close popup__btn-close_avatar-edit"></button>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form class="form form_avatar-edit" name="avatarForm" novalidate>
+        <input id="avatarLink" name="avatar" class="form__input form__input_avatarLink" value="" placeholder="Ссылка на картинку" type="url" required>
+        <span class="form__input-error avatarLink-error" id="avatarLink-error"></span>
+        <button type="submit" class="button form__submit-btn form__submit-btn-avatar-edit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="popup popup_confirm">
+    <div class="popup__content">
+      <button type="button" class="button popup__btn-close"></button>
+      <h3 class="popup__title">Вы уверены?</h3>
+      <button type="button" class="button popup__btn-submit">Да</button>
+    </div>
+  </div>
+
   <template class="template">
     <figure class="card">
       <img class="card__image" src="#" alt="#">
       <button type="button" class="button card__btn-delete"></button>
       <div class="card__wrapper">
         <h2 class="card__title"></h2>
-        <button type="button" class="button card__btn-like"></button>
+        <div class="card__like-wrapper">
+          <button type="button" class="button card__btn-like"></button>
+          <p class="card__like-counter"></p>
+        </div>  
       </div>
     </figure>
   </template>
