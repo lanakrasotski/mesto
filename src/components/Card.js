@@ -68,7 +68,7 @@ export default class Card {
           this.api.addLike(this._id)
             .then(data => {
               this._allLikes.textContent = data.likes.length;
-              this._likeButton.classList.add('card__btn-like_active');            
+              this._likeButton.classList.add('card__btn-like_active');
             })
             .catch(err => console.log(err));
         }    

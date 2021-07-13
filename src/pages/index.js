@@ -11,7 +11,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import Api from '../components/Api.js';
 
-let myId;
+let myData;
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-25', 
@@ -25,12 +25,12 @@ const api = new Api({
 const fullsizeImgPopup = new PopupWithImage(imagePopupSelector);
 
 function cardRenderer(data) {
-  return new Card(data, myId, cardSelector, fullsizeImgPopup, deleteConfirmPopup, api).generateCard();
+  return new Card(data, myData, cardSelector, fullsizeImgPopup, deleteConfirmPopup, api).generateCard();
 };
 
 const cardsList = new Section((data) => {
   const newCard = cardRenderer(data);
-  cardsList.addItem(newCard); 
+  cardsList.addItem(newCard);
   }, cardContainer);
 
 const addImagePopup = new PopupWithForm(addPopupSelector, addFormSubmitHandler);
@@ -44,10 +44,11 @@ addPopupButton.addEventListener('click', () => {
 
 Promise.all([api.getAllCards(), api.getUserInfo()])
   .then(([cardData, userData]) => {
-    myId = userData;
-    userInfo.setUserInfo(myId);
+    myData = userData;
+    userInfo.setUserInfo(myData);
     cardsList.renderItems(cardData);
 })
+  .catch(err => console.log(err));
 
 function addFormSubmitHandler(cardData) {
  api.addNewCard(cardData)
@@ -71,10 +72,12 @@ const editProfilePopup = new PopupWithForm(editPopupSelector, editFormSubmitHand
 
 function editFormSubmitHandler(user) {
   api.editUserInfo(user)
-    .then(data => userInfo.setUserInfo(data))
+    .then(data => {
+      userInfo.setUserInfo(data);
+      editProfilePopup.close();
+    })
     .catch(err => console.log(err))
     .finally(() => editProfilePopup.loading(false));
-  editProfilePopup.close();
 }
 
 editProfilePopup.setEventListeners();
